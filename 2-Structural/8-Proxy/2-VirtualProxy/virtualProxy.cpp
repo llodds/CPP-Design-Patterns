@@ -16,6 +16,8 @@ struct Bitmap : Image {
   void draw() override { cout << "Drawing image" << endl; }
 };
 
+//we don't want to init bitmap until somebody wants to draw it
+//LazyBitmap is the virtual proxy
 struct LazyBitmap : Image {
   LazyBitmap(const string& filename) : filename(filename) {}
   ~LazyBitmap() { delete bmp; }
