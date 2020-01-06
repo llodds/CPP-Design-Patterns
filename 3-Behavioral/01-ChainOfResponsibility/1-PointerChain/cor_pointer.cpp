@@ -26,14 +26,14 @@ class CreatureModifier {
   explicit CreatureModifier(Creature& creature) : creature(creature) {}
   virtual ~CreatureModifier() = default;
 
-  void add(CreatureModifier* cm) {
+  void add(CreatureModifier* cm) { //build list of responsbilities
     if (next)
       next->add(cm);
     else
       next = cm;
   }
 
-  virtual void handle() {
+  virtual void handle() { //realize list of responsbilities
     if (next) next->handle();
   }
 };
@@ -56,7 +56,7 @@ class DoubleAttackModifier : public CreatureModifier {
 
   void handle() override {
     creature.attack *= 2;
-    CreatureModifier::handle();
+    CreatureModifier::handle(); //allows us to walk along the list of responsbilities
   }
 };
 
@@ -67,7 +67,7 @@ class IncreaseDefenseModifier : public CreatureModifier {
   void handle() override {
     if (creature.attack <= 2) creature.defense++;
     CreatureModifier::handle();
-  }
+  } 
 };
 
 int main() {
