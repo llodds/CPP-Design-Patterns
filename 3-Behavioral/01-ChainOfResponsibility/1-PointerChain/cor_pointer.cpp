@@ -67,7 +67,7 @@ class IncreaseDefenseModifier : public CreatureModifier {
   void handle() override {
     if (creature.attack <= 2) creature.defense++;
     CreatureModifier::handle();
-  } 
+  }
 };
 
 int main() {
