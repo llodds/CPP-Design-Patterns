@@ -56,7 +56,7 @@ struct BinaryTree {
             return current != other.current;
         }
         
-        // no continuations in C++ (unlike C#)
+        // no recusion!
         BinaryTreeIterator<U>& operator++() {
             if (current->right) {
                 current = current->right;
