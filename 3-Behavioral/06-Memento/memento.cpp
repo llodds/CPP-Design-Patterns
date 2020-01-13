@@ -36,7 +36,7 @@ class BankAccount2 {
   int balance = 0;
   // Save all changes to balance in 'changes' vector.
   vector<shared_ptr<Memento>> changes;
-  int current;
+  int current; //tells us where we are in the vector (timeline)
 
  public:
   explicit BankAccount2(const int balance) : balance(balance) {

@@ -11,7 +11,7 @@ using namespace boost;
 
 struct Person;
 
-struct PersonListener {
+struct PersonListener { //observer
   virtual ~PersonListener() = default;
   virtual void person_changed(Person& p, const string& property_name,
                               const any new_value) = 0;
@@ -19,7 +19,7 @@ struct PersonListener {
 
 static mutex mtx;
 
-struct Person {
+struct Person { //observable
   explicit Person(int age) : age(age) {}
 
   int get_age() const { return age; }
