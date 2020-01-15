@@ -61,6 +61,7 @@ inline ostream& operator<<(ostream& os, const Trigger& t) {
 }
 
 int main() {
+          //start from a state, transition to another state based on different triggers
   map<State, vector<pair<Trigger, State>>> rules;
 
   rules[State::OffHook] = {{Trigger::CallDialed, State::Connecting}};
